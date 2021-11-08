@@ -1,0 +1,26 @@
+ods noproctitle;
+ods graphics / imagemap=on;
+
+proc sort data=WORK.IMPORT out=Work.preProcessedData;
+	by date_added;
+run;
+
+proc arima data=Work.preProcessedData plots
+     (only)=(series(corr crosscorr) residual(corr normal) 
+		forecast(forecast forecastonly) );
+	identify var='type#'n(1);
+	estimate p=(1 2 3) q=(1) method=ML;
+	forecast lead=12 back=0 alpha=0.05 id=date_added interval=day;
+	outlier;
+	run;
+quit;
+
+proc delete data=Work.preProcessedData;
+run;
+
+ds noproctitle;
+ods graphics / imagemap=on;
+
+proc means data=WORK.IMPORT chartype mean std min max n vardef=df;
+	var date_added release_year 'type#'n;
+run;

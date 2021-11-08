@@ -1,0 +1,21 @@
+> min(netflixratings$`user rating score`)
+[1] 55
+> max(netflixratings$`user rating score`)
+[1] 99
+> sd(netflixratings$`user rating score`)
+[1] 12.74858
+> summary(netflixratings)
+    title              rating          ratingLevel        ratingDescription  release year  user rating score
+ Length:254         Length:254         Length:254         Min.   : 10.00    Min.   :1940   Min.   :55.00    
+ Class :character   Class :character   Class :character   1st Qu.: 60.00    1st Qu.:2007   1st Qu.:71.00    
+ Mode  :character   Mode  :character   Mode  :character   Median : 80.00    Median :2015   Median :83.00    
+                                                          Mean   : 74.53    Mean   :2010   Mean   :81.32    
+                                                          3rd Qu.: 90.00    3rd Qu.:2016   3rd Qu.:92.75    
+                                                          Max.   :124.00    Max.   :2017   Max.   :99.00    
+ user rating size
+ Min.   :80      
+ 1st Qu.:80      
+ Median :80      
+ Mean   :80      
+ 3rd Qu.:80      
+ Max.   :80
